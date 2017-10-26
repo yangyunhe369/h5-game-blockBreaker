@@ -21,7 +21,7 @@
 
 ## 下载源码
 
-```
+``` bash
 git clone https://github.com/yangyunhe369/h5-game-blockBreaker.git
 ```
 

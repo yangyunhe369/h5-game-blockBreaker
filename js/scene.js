@@ -89,7 +89,6 @@ class Block {
       image: life == 1 ? imageFromPath(allImg.block1) : imageFromPath(allImg.block2),     // 图片对象
       life: life,                                                                         // 生命值
       alive: true,                                                                        // 是否存活
-      ballInblcok: false,
     }
     Object.assign(this, bk)
   }
@@ -135,12 +134,12 @@ class Block {
 class Score {
   constructor (_main) {
     let s = {
-      x: _main.score_x,
-      y: _main.score_y,
-      text: '分数：',
-      textLv: '关卡：',
-      score: 200,
-      allScore: 0,
+      x: _main.score_x,                               // x轴坐标
+      y: _main.score_y,                               // y轴坐标
+      text: '分数：',                                 // 文本分数
+      textLv: '关卡：',                               // 关卡文本
+      score: 200,                                     // 每个砖块对应分数
+      allScore: 0,                                    // 总分
       blockList: _main.blockList,                     // 砖块对象集合
       blockListLen: _main.blockList.length,           // 砖块总数量
       lv: _main.LV,                                   // 当前关卡
@@ -182,7 +181,7 @@ class Scene {
     }
     return arr
   }
-  // 创建砖块坐标二维数组
+  // 创建砖块坐标二维数组，并生成不同关卡
   creatBlockList () {
     let lv = this.lv,                         // 游戏难度级别
         c_w = this.canvas.width,              // canvas宽度
