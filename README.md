@@ -2,14 +2,11 @@
 
 本项目是利用原生js实现的h5小游戏，在实现时使用了大量es6语法，对于es6语法不太熟悉的小伙伴可以先查阅相关资料了解一下
 
+**demo**：[线上地址](https://yangyunhe369.github.io/h5-game-blockBreaker/)
+
 ## 项目截图
 
 ![](images/screenshot1.png)
-
-## 项目实现目标：
-* 学习canvas相关api
-* 看相关资料学习游戏设计流程，及游戏逻辑
-* 使用es6语法进行项目重构，熟练使用es6语法
 
 ## 已完成功能：
 - [x] 设计多个关卡
@@ -21,8 +18,6 @@
 ## 待优化功能：
 - [ ] 小球与挡板和砖块之间的碰撞模型不够精确
 - [ ] 图片素材有待更新
-
-**demo**：[线上地址](https://yangyunhe369.github.io/h5-game-blockBreaker/)
 
 ## 下载源码
 
