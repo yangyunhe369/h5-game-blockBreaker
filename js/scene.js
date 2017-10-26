@@ -130,7 +130,7 @@ class Block {
     return false
   }
 }
-// 分数
+// 计分板
 class Score {
   constructor (_main) {
     let s = {
