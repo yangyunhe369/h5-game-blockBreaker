@@ -66,3 +66,7 @@ QQ：314786482
 微信：yangyunhe_yyh
 
 坐标：四川成都
+
+## License
+
+[MIT](https://github.com/yangyunhe369/h5-game-blockBreaker/blob/master/LICENSE)
