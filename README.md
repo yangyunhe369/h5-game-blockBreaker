@@ -4,7 +4,7 @@
 
 ## 项目截图
 
-![1](images/screenshot.png)
+![](images/screenshot1.png)
 
 ## 项目实现目标：
 * 学习canvas相关api
@@ -39,15 +39,16 @@ git clone https://github.com/yangyunhe369/h5-game-blockBreaker.git
 ├─ css                          // css样式资源文件
 ├─ images                       // 图片资源文件  
 └─ js
-   ├─ common.js                 // 公共js方法
+   ├─ common.js                 // 公共方法
+   ├─ scene.js                  // 游戏场景相关类
    ├─ game.js                   // 游戏主要运行逻辑
-   └─ scene.js                  // 游戏场景相关类
+   └─ main.js                   // 游戏运行主函数
 ```
 
->common.js => 引入公共方法
->scene.js => 引入游戏场景素材相关原型，包括砖块、小球、挡板、生成的砖块对象集合、计分板
->game.js => 引入游戏引擎
->main.js => 游戏运行主函数
+* common.js => 引入公共方法
+* scene.js => 引入游戏场景素材相关类，包括砖块、小球、挡板、生成的砖块对象集合、计分板
+* game.js => 引入游戏引擎
+* main.js => 游戏运行主函数
 
 ## 说明
 
