@@ -1,3 +1,6 @@
+/* by：弦云孤赫——David Yang
+** github - https://github.com/yangyunhe369
+*/
 // 封装打印日志方法
 const log = console.log.bind(console)
 // 生成图片对象方法
@@ -17,10 +20,10 @@ const isPageHidden = function (game) {
   document.addEventListener(visibilityChangeEvent, function () {
     if (!document[hiddenProperty]) {  // 可见状态
       setTimeout(function () {
-        game.isStop = false
+        game.state = game.state_RUNNING
       }, 100)
     } else { // 不可见状态
-      game.isStop = true
+      game.state = game.state_STOP
     }
   })
 }

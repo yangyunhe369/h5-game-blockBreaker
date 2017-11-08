@@ -1,3 +1,7 @@
+/* by：弦云孤赫——David Yang
+** github - https://github.com/yangyunhe369
+*/
+// 游戏主函数
 let _main = {
   LV: 1,                               // 初始关卡
   MAXLV: 3,                            // 最终关卡
@@ -14,7 +18,7 @@ let _main = {
   score_y: 30,                         // 计分板默认y轴坐标
   fps: 60,                             // 游戏运行帧数
   game: null,                          // 游戏主要逻辑对象
-  start: function () {
+  start: function () {                 // 游戏启动函数
     let self = this
     /**
      * 生成场景（根据游戏难度级别不同，生成不同关卡）
