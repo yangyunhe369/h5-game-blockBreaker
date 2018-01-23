@@ -29,8 +29,9 @@ const isPageHidden = function (game) {
 }
 // 图片素材路径
 const allImg = {
+  background: 'background.jpg',
   paddle: 'paddle.png',
   ball: 'ball.png',
-  block1: 'block_01.png',
-  block2: 'block_02.png',
+  block1: 'block001.png',
+  block2: 'block002.png',
 }
