@@ -6,7 +6,7 @@
 
 ## 项目截图
 
-![](images/screenshot1.png)
+![](images/screenshot2.png)
 
 ## 已完成功能：
 - [x] 设计多个关卡
