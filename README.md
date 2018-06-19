@@ -49,6 +49,7 @@ git clone https://github.com/yangyunhe369/h5-game-blockBreaker.git
 ## 项目更新
 
 2018.1.11 — v1.1：优化代码，替换游戏图片资源文件。
+
 2018.6.19 - v1.2: 优化代码，修复游戏不能通关bug。
 
 ## 说明
