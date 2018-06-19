@@ -3,8 +3,9 @@
 */
 // 游戏主要运行逻辑
 class Game {
-  constructor (fps = 60) {
+  constructor (main) {
     let g = {
+      main: main,                                                   // 游戏主函数
       actions: {},                                                  // 记录按键动作
       keydowns: {},                                                 // 记录按键keycode
       state: 1,                                                     // 游戏状态值，初始默认为1
@@ -16,7 +17,7 @@ class Game {
       canvas: document.getElementById("canvas"),                    // canvas元素
       context: document.getElementById("canvas").getContext("2d"),  // canvas画布
       timer: null,                                                  // 轮询定时器
-      fps: fps,                                                     // 动画帧数，默认60
+      fps: main.fps,                                                // 动画帧数，默认60
     }
     Object.assign(this, g)
   }
@@ -32,7 +33,7 @@ class Game {
     // 绘制小球
     g.drawImage(ball)
     // 绘制砖块
-    g.drawAllBlock(blockList)
+    g.drawBlocks(blockList)
     // 绘制分数
     g.drawText(score)
   }
@@ -46,7 +47,7 @@ class Game {
     this.context.drawImage(bg, 0, 0)
   }
   // 绘制所有砖块
-  drawAllBlock (list) {
+  drawBlocks (list) {
     for (let item of list) {
       this.drawImage(item)
     }
@@ -158,8 +159,7 @@ class Game {
   // 设置逐帧动画
   setTimer (paddle, ball, blockList, score) {
     let g = this
-    // let p = paddle
-    // let b = ball
+    let main = g.main
     g.timer = setInterval(function () {
       // actions集合
       let actions = Object.keys(g.actions)
@@ -172,10 +172,17 @@ class Game {
       }
       // 当砖块数量为0时，挑战成功
       if (blockList.length == 0) {
-        // 升级通关
-        g.state = g.state_UPDATE
-        // 挑战成功，渲染下一关卡场景
-        g.goodGame()
+        if (main.LV === main.MAXLV) { // 最后一关通关
+          // 升级通关
+          g.state = g.state_UPDATE
+          // 挑战成功，渲染通关场景
+          g.finalGame()
+        } else { // 其余关卡通关
+          // 升级通关
+          g.state = g.state_UPDATE
+          // 挑战成功，渲染下一关卡场景
+          g.goodGame()
+        }
       }
       // 判断游戏是否结束
       if (g.state === g.state_GAMEOVER) {
@@ -194,14 +201,13 @@ class Game {
   }
   /**
    * 初始化函数
-   * _main: 游戏入口函数对象
    */
-  init (_main) {
+  init () {
     let g = this,
-        paddle = _main.paddle,
-        ball = _main.ball,
-        blockList = _main.blockList,
-        score = _main.score
+        paddle = g.main.paddle,
+        ball = g.main.ball,
+        blockList = g.main.blockList,
+        score = g.main.score
     // 设置键盘按下及松开相关注册函数
     window.addEventListener('keydown', function (event) {
      g.keydowns[event.keyCode] = true
@@ -234,7 +240,7 @@ class Game {
             // 开始游戏
             g.state = g.state_START
             // 初始化
-            _main.start()
+            g.main.start()
           } else { 
             // 开始游戏
             ball.fired = true
@@ -244,13 +250,11 @@ class Game {
         // N 键进入下一关卡
         case 78 :
           // 游戏状态为通关，且不为最终关卡时
-          if (g.state === g.state_UPDATE && _main.LV !== MAXLV) { // 进入下一关
+          if (g.state === g.state_UPDATE && g.main.LV !== g.main.MAXLV) { // 进入下一关
             // 开始游戏
             g.state = g.state_START
             // 初始化下一关卡
-            _main.start(++_main.LV)
-          } else if (g.state === g.state_UPDATE && _main.LV === MAXLV) { // 到达最终关卡
-            g.finalGame()
+            g.main.start(++g.main.LV)
           }
           break
         // P 键暂停游戏事件

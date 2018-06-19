@@ -100,8 +100,8 @@ class Block {
     this.life--
     if (this.life == 0) {
       this.alive = false
-    } else {
-      this.alive = true
+    } else if (this.life == 1) {
+      this.image = imageFromPath(allImg.block1)
     }
   }
   // 小球、砖块碰撞检测
